@@ -25,11 +25,11 @@ theme_update(
 #Create some moderately correlated data
 
 testdata = data.frame(x=rnorm(20000, mean = 1.5, sd = 0.2), z=rnorm(20000, mean = 1.5, sd = 0.5))
-testdata$y = (newdata$x+newdata$z)/2
+testdata$y = (testdata$x+testdata$z)/2
 
 # Scatterplot with density contours and marginal density plots
   
-p1 <- ggplot(newdata, aes(x=x, y=y)) +
+p1 <- ggplot(testdata, aes(x=x, y=y)) +
   geom_point(alpha=0.06, colour="steelblue2", pch=19) +
   stat_density2d(geom="density2d", aes(alpha=..level..), colour="magenta3", size=1.5, contour=TRUE) +
   geom_smooth(method="lm", colour="black", se=TRUE, size=1.5, level=0.99)
